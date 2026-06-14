@@ -27,10 +27,11 @@ class Settings(BaseSettings):
     placeholder_storage_path: str = "images/urema-placeholder.png"  # путь в Storage
     title_date_format: str = "%d.%m.%Y"
 
-    # --- STT (Yandex SpeechKit) ---
-    yandex_api_key: str = ""  # SpeechKit API-ключ сервисного аккаунта
-    yandex_folder_id: str = ""  # обычно не нужен при авторизации по API-ключу
-    yandex_language: str = "ru-RU"
+    # --- STT (faster-whisper) ---
+    whisper_model: str = "medium"  # small / medium / large-v3
+    whisper_device: str = "cpu"  # cpu / cuda
+    whisper_compute_type: str = "int8"  # int8 (cpu) / float16 (gpu)
+    whisper_language: str = "ru"
 
     # --- Сообщения ---
     channel_message: str = "Текст размещён"
