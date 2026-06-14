@@ -36,6 +36,9 @@ class Settings(BaseSettings):
     # --- Сообщения ---
     channel_message: str = "Текст размещён"
 
+    # Ходить в Telegram по IPv6 (если IPv4 к api.telegram.org заблокирован, напр. в РФ)
+    telegram_force_ipv6: bool = False
+
     @property
     def allowed_ids(self) -> set[int]:
         return {
