@@ -1,0 +1,20 @@
+# Fly.io: бот как always-on worker (без публичных портов — это polling, не веб-сервер).
+# Имя app должно быть уникальным в Fly; при необходимости поменяйте.
+app = "urema-voice-bot"
+primary_region = "fra"  # Франкфурт — близко к Telegram/Supabase
+
+[build]
+
+[env]
+  HF_HOME = "/data/huggingface"
+  # small (~0.5 ГБ) комфортно живёт на 2 ГБ RAM. medium требует больше памяти.
+  WHISPER_MODEL = "small"
+
+# Том для кэша модели Whisper, чтобы не качать её при каждом редеплое.
+[mounts]
+  source = "urema_data"
+  destination = "/data"
+
+[[vm]]
+  size = "shared-cpu-1x"
+  memory = "2gb"

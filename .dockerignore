@@ -1,0 +1,9 @@
+.venv/
+__pycache__/
+*.pyc
+.env
+.bot_cache.json
+tools/
+deploy/
+*.md
+.git/

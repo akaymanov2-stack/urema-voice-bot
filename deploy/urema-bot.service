@@ -1,0 +1,18 @@
+[Unit]
+Description=uRema Voice Bot (Telegram voice -> blog draft)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+# Замените на пользователя VPS, которому принадлежит каталог проекта
+User=__USER__
+WorkingDirectory=/opt/urema-voice-bot
+ExecStart=/opt/urema-voice-bot/.venv/bin/python -m bot.main
+Restart=always
+RestartSec=5
+# Whisper medium держит ~2 ГБ. Раскомментируйте, чтобы ограничить память:
+# MemoryMax=2G
+
+[Install]
+WantedBy=multi-user.target
