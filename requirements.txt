@@ -1,4 +1,4 @@
 aiogram>=3.7,<4
-faster-whisper>=1.0
+yandexcloud>=0.300
 supabase>=2.4
 pydantic-settings>=2.2
